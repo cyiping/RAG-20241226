@@ -2,14 +2,14 @@
 - 採用**柯文哲起訴書範例**
 - Kaggle / GPU P100
 
-# 測試結果
+### 測試結果
 - OCR效果很差 (用 pdf2image, pytesseract)
 - 使用 Hugging Face Transformers 生成嵌入向量
 - 因為是採用 kaggle 環境，所以改用 faiss 當向量資料庫
 
-# 功能說明
+### 功能說明
 
-## 1. `from pdf2image import convert_from_path`
+#### 1. `from pdf2image import convert_from_path`
 - **功能**：
   - 將 PDF 文件的每一頁轉換為圖片格式。
   - 適用於處理掃描型 PDF（圖片型 PDF），供 OCR 提取文字使用。
@@ -18,7 +18,7 @@
 
 ---
 
-## 2. `from pytesseract import image_to_string`
+#### 2. `from pytesseract import image_to_string`
 - **功能**：
   - 使用 Tesseract OCR 引擎從圖片中提取文字。
 - **用途**：
@@ -27,7 +27,7 @@
 
 ---
 
-## 3. `from langchain.text_splitter import RecursiveCharacterTextSplitter`
+#### 3. `from langchain.text_splitter import RecursiveCharacterTextSplitter`
 - **功能**：
   - 將長文本分割為多個小塊，每塊有指定的長度（例如 1000 字），並允許塊之間有一定重疊。
   - 適用於大規模語言模型（LLM）處理的上下文分塊。
@@ -36,7 +36,7 @@
 
 ---
 
-## 4. `from langchain.schema import Document`
+#### 4. `from langchain.schema import Document`
 - **功能**：
   - LangChain 中的文檔對象類型，包含文本內容和元數據。
 - **用途**：
@@ -44,7 +44,7 @@
 
 ---
 
-## 5. `from transformers import AutoTokenizer, AutoModel`
+#### 5. `from transformers import AutoTokenizer, AutoModel`
 - **功能**：
   - 來自 Hugging Face Transformers 庫，負責：
     - **`AutoTokenizer`**：自動加載與特定模型兼容的分詞器，用於將文本轉換為模型的輸入格式。
@@ -54,7 +54,7 @@
 
 ---
 
-## 6. `import numpy as np`
+#### 6. `import numpy as np`
 - **功能**：
   - 提供高效的數值計算功能，支持多維數組和矩陣操作。
 - **用途**：
@@ -62,7 +62,7 @@
 
 ---
 
-## 7. `import faiss`
+#### 7. `import faiss`
 - **功能**：
   - Facebook AI 提供的高效相似度檢索庫，專門用於大規模嵌入向量的檢索。
 - **用途**：
@@ -70,7 +70,7 @@
 
 ---
 
-## 8. `import time`
+#### 8. `import time`
 - **功能**：
   - 提供與時間相關的功能，例如記錄開始和結束時間。
 - **用途**：
@@ -78,7 +78,7 @@
 
 ---
 
-## 9. `import torch`
+#### 9. `import torch`
 - **功能**：
   - PyTorch 深度學習框架，支持 GPU 加速的張量計算和模型運行。
 - **用途**：
@@ -86,7 +86,7 @@
 
 ---
 
-# 這些模組結合使用的場景
+### 這些模組結合使用的場景
 1. **PDF 處理**：
    - 從 PDF 提取每頁作為圖片，然後通過 OCR 提取文字。
    
